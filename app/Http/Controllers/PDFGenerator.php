@@ -30,6 +30,11 @@ class PDFGenerator extends Controller
                 $mpdf->WriteHTML($html_to_convert);
                 $mpdf->Output($file_path, 'F');
 
+                $url = url('/');
+                if ($request::secure() ) {
+                    $url = str_replace('http', 'https', $url);
+                }
+
                 return response()->json(
                     array(
                         'code'     => '200',
@@ -37,7 +42,7 @@ class PDFGenerator extends Controller
                         'response' =>
                             array(
                                 'input' => htmlspecialchars($html_to_convert),
-                                'output' => url('/').'/tmp_folder/'.$file_name,
+                                'output' => $url.'/tmp_folder/'.$file_name,
                             )
                     )
                 );
