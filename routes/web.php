@@ -17,9 +17,14 @@ $router->get(
     }
 );
 
-$router->group(['prefix'=>'api/v1'], function() use($router){
-    $router->post('/generate-pdf', 'PDFGenerator@generate_pdf');
-});
+$router->get(
+    '/delete', function () use ($router) {
+        return view('delete');
+    }
+);
+
+
+
 $router->group(
     ['prefix'=>'api/v1'], function () use ($router) {
         $router->post('/generate-pdf', 'PDFGenerator@generate_pdf');
