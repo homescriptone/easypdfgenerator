@@ -23,10 +23,12 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
-
 $app->withFacades();
-
-// $app->withEloquent();
+define('HS_TMP_FOLDER', dirname ( __DIR__ ) . '/public/tmp_folder/' );
+if ( !is_dir( HS_TMP_FOLDER ) ){
+    mkdir( HS_TMP_FOLDER , 0777 );
+}
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
