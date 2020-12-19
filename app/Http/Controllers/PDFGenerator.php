@@ -33,6 +33,7 @@ class PDFGenerator extends Controller
                 $url = url('/');
                 if ($request::secure() ) {
                     $url = str_replace('http', 'https', $url);
+                    var_dump($url, preg_replace('/http/','https', $url));
                 }
 
                 return response()->json(
