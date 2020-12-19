@@ -30,11 +30,7 @@ class PDFGenerator extends Controller
                 $mpdf->WriteHTML($html_to_convert);
                 $mpdf->Output($file_path, 'F');
 
-                $url = url('/');
-                if ($request::secure() ) {
-                    $url = str_replace('http', 'https', $url);
-                    var_dump($url, preg_replace('/http/','https', $url));
-                }
+                $url = preg_replace('/http/','https', url('/'));
 
                 return response()->json(
                     array(
