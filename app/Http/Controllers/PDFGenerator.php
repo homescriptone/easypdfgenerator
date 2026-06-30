@@ -20,9 +20,9 @@ class PDFGenerator extends Controller
                 $file_path       = HS_TMP_FOLDER .$file_name;
                 $html_to_convert = $request->input('html');
                 $mpdf            = new \Mpdf\Mpdf(
-                    [
-                        'default_font' => 'montserrat'
-                    ]
+                    // [
+                    //     'default_font' => 'montserrat'
+                    // ]
                 );
                 $mpdf->SetAuthor('HOMESCRIPT');
                 $mpdf->SetCreator('Emmanuel from HomeScript');
