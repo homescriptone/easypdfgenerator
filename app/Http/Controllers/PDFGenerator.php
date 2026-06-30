@@ -36,7 +36,7 @@ class PDFGenerator extends Controller
                         'message'  => 'success',
                         'response' =>
                             array(
-                                'input' => htmlspecialchars($html_to_convert),
+                                // 'input' => htmlspecialchars($html_to_convert),
                                 'output' => url('/').'/tmp_folder/'.$file_name,
                             )
                     )
